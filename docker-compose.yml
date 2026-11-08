@@ -8,7 +8,7 @@ x-common: &common
 services:
   jellyfin:
     <<: *common
-    image: lscr.io/linuxserver/jellyfin:latest
+    image: lscr.io/linuxserver/jellyfin@sha256:38f6ad3bcd487c82933ede7e32d74ab8712fffcff9e87b16dd2e245ab37130f8
     container_name: jellyfin
     environment:
       PUID: 1000
@@ -94,7 +94,7 @@ services:
       - "6767:6767"
 
   jellyseerr:
-    image: ghcr.io/seerr-team/seerr:latest
+    image: ghcr.io/seerr-team/seerr@sha256:d8fab675b55ad293ded98fd71efcfd46054cbad9746534ae1cc4794a88c0b3be
     init: true
     container_name: jellyseerr
     restart: unless-stopped
