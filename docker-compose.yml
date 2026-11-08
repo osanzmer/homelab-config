@@ -156,3 +156,20 @@ services:
       WATCHTOWER_NOTIFICATION_URL: "ntfy://ntfy.sh/TU-TEMA"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+  scrutiny:
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    container_name: scrutiny
+    restart: unless-stopped
+    cap_add:
+      - SYS_RAWIO
+      - SYS_ADMIN
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ./config/scrutiny:/opt/scrutiny/config
+      - ./config/scrutiny/influxdb:/opt/scrutiny/influxdb
+    ports:
+      - "8090:8080"
+    devices:
+      - /dev/sda
+      - /dev/sdb
