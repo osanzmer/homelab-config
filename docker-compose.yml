@@ -144,3 +144,15 @@ services:
       SONARR_API_KEY: ${SONARR_API_KEY}
     volumes:
       - ./config/recyclarr:/config
+
+  watchtower:
+    image: nickfedor/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Madrid
+      WATCHTOWER_MONITOR_ONLY: "true"
+      WATCHTOWER_SCHEDULE: "0 0 9 * * 6"
+      WATCHTOWER_NOTIFICATION_URL: "ntfy://ntfy.sh/TU-TEMA"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
