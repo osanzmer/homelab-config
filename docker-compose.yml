@@ -1,0 +1,80 @@
+x-common: &common
+  restart: unless-stopped
+  environment:
+    PUID: 1000
+    PGID: 1000
+    TZ: Europe/Madrid
+
+services:
+  jellyfin:
+    <<: *common
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Madrid
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: all
+    volumes:
+      - ./config/jellyfin:/config
+      - /data/media:/data/media:ro
+    ports:
+      - "8096:8096"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  qbittorrent:
+    <<: *common
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    volumes:
+      - ./config/qbittorrent:/config
+      - /data:/data
+    ports:
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+
+  sonarr:
+    <<: *common
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    volumes:
+      - ./config/sonarr:/config
+      - /data:/data
+    ports:
+      - "8989:8989"
+
+  radarr:
+    <<: *common
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    volumes:
+      - ./config/radarr:/config
+      - /data:/data
+    ports:
+      - "7878:7878"
+
+  prowlarr:
+    <<: *common
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    volumes:
+      - ./config/prowlarr:/config
+    ports:
+      - "9696:9696"
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    volumes:
+      - ./config/uptime-kuma:/app/data
+    ports:
+      - "3001:3001"
