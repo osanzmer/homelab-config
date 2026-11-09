@@ -262,3 +262,14 @@ services:
       - ./config/beszel:/beszel_data
     ports:
       - "127.0.0.1:8091:8090"
+
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      TZ: Europe/Madrid
+    volumes:
+      - ./config/homeassistant:/config
+      - /run/dbus:/run/dbus:ro
