@@ -81,3 +81,8 @@ bazarr.home.lab, bazarr.fortress.lan {
 	import solo_oscar
 	reverse_proxy bazarr:6767
 }
+
+games.home.lab {
+	import solo_oscar
+	reverse_proxy romm:8080
+}
