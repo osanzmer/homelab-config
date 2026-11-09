@@ -49,7 +49,7 @@ services:
       - ./config/qbittorrent:/config
       - /data:/data
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
       - "6881:6881"
       - "6881:6881/udp"
 
@@ -61,7 +61,7 @@ services:
       - ./config/sonarr:/config
       - /data:/data
     ports:
-      - "8989:8989"
+      - "127.0.0.1:8989:8989"
 
   radarr:
     <<: *common
@@ -71,7 +71,7 @@ services:
       - ./config/radarr:/config
       - /data:/data
     ports:
-      - "7878:7878"
+      - "127.0.0.1:7878:7878"
 
   prowlarr:
     <<: *common
@@ -80,7 +80,7 @@ services:
     volumes:
       - ./config/prowlarr:/config
     ports:
-      - "9696:9696"
+      - "127.0.0.1:9696:9696"
 
   uptime-kuma:
     image: louislam/uptime-kuma:1
@@ -103,7 +103,7 @@ services:
       - ./config/bazarr:/config
       - /data/media:/data/media
     ports:
-      - "6767:6767"
+      - "127.0.0.1:6767:6767"
 
   jellyseerr:
     image: ghcr.io/seerr-team/seerr@sha256:d8fab675b55ad293ded98fd71efcfd46054cbad9746534ae1cc4794a88c0b3be
@@ -129,7 +129,7 @@ services:
       - ./config/lidarr:/config
       - /data:/data
     ports:
-      - "8686:8686"
+      - "127.0.0.1:8686:8686"
 
   unpackerr:
     image: golift/unpackerr:latest
@@ -181,7 +181,7 @@ services:
       - ./config/scrutiny:/opt/scrutiny/config
       - ./config/scrutiny/influxdb:/opt/scrutiny/influxdb
     ports:
-      - "8090:8080"
+      - "127.0.0.1:8090:8080"
     devices:
       - /dev/sda
       - /dev/sdb
@@ -224,7 +224,7 @@ services:
     volumes:
       - ./config/jellystat/backup:/app/backend/backup-data
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - jellystat-db
 
@@ -233,12 +233,12 @@ services:
     container_name: homepage
     restart: unless-stopped
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: 192.168.1.74:3002,100.124.174.116:3002,inicio.fortress.lan
+      HOMEPAGE_ALLOWED_HOSTS: 192.168.1.74:3002,100.124.174.116:3002,inicio.fortress.lan,homepage:3000,homepage:3000
     volumes:
       - ./config/homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
-      - "3002:3000"
+      - "127.0.0.1:3002:3000"
 
   caddy:
     image: caddy:2
