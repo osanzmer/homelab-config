@@ -8,76 +8,76 @@
 }
 
 # --- Abiertos (tienen su propio usuario) ---
-watch.home.lab, jellyfin.fortress.lan {
+watch.home.lab {
 	reverse_proxy jellyfin:8096
 }
-request.home.lab, seerr.fortress.lan {
+request.home.lab {
 	reverse_proxy jellyseerr:5055
 }
-status.home.lab, estado.fortress.lan {
+status.home.lab {
 	reverse_proxy uptime-kuma:3001
 }
-invite.home.lab, invitar.fortress.lan {
+invite.home.lab {
 	reverse_proxy wizarr:5690
 }
-iot.home.lab, assist.home.lab, casa.fortress.lan {
+iot.home.lab, assist.home.lab {
 	reverse_proxy 192.168.1.74:8123
 }
 
 # --- Solo para Oscar ---
-dashboard.home.lab, inicio.fortress.lan {
+dashboard.home.lab {
 	import solo_oscar
 	reverse_proxy homepage:3000
 }
-photos.home.lab, fotos.fortress.lan {
+photos.home.lab {
 	import solo_oscar
 	reverse_proxy 192.168.1.74:2283
 }
-ai.home.lab, ia.fortress.lan {
+ai.home.lab {
 	import solo_oscar
 	reverse_proxy open-webui:8080
 }
-ollama.home.lab, ollama.fortress.lan {
+ollama.home.lab {
 	import solo_oscar
 	reverse_proxy ollama:11434
 }
-docker.home.lab, docker.fortress.lan {
+docker.home.lab {
 	import solo_oscar
 	reverse_proxy dockge:5001
 }
-monitor.home.lab, beszel.fortress.lan {
+monitor.home.lab {
 	import solo_oscar
 	reverse_proxy beszel:8090
 }
-disks.home.lab, discos.fortress.lan {
+disks.home.lab {
 	import solo_oscar
 	reverse_proxy scrutiny:8080
 }
-stats.home.lab, stats.fortress.lan {
+stats.home.lab {
 	import solo_oscar
 	reverse_proxy jellystat:3000
 }
-downloads.home.lab, qbittorrent.fortress.lan {
+downloads.home.lab {
 	import solo_oscar
 	reverse_proxy qbittorrent:8080
 }
-radarr.home.lab, radarr.fortress.lan {
+radarr.home.lab {
 	import solo_oscar
 	reverse_proxy radarr:7878
 }
-sonarr.home.lab, sonarr.fortress.lan {
+sonarr.home.lab {
 	import solo_oscar
 	reverse_proxy sonarr:8989
 }
-lidarr.home.lab, lidarr.fortress.lan {
+lidarr.home.lab {
 	import solo_oscar
 	reverse_proxy lidarr:8686
 }
-prowlarr.home.lab, prowlarr.fortress.lan {
+prowlarr.home.lab {
 	import solo_oscar
 	reverse_proxy prowlarr:9696
 }
-bazarr.home.lab, bazarr.fortress.lan {
+bazarr.home.lab {
 	import solo_oscar
 	reverse_proxy bazarr:6767
 }
