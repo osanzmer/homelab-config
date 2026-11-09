@@ -24,8 +24,6 @@ services:
     container_name: jellyfin
     tmpfs:
       - /transcodes:size=4G
-    tmpfs:
-      - /transcodes:size=4G
     environment:
       PUID: 1000
       PGID: 1000
