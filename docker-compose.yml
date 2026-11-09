@@ -273,3 +273,32 @@ services:
     volumes:
       - ./config/homeassistant:/config
       - /run/dbus:/run/dbus:ro
+
+  whisper:
+    <<: *common
+    image: lscr.io/linuxserver/faster-whisper:latest
+    container_name: whisper
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Madrid
+      WHISPER_MODEL: base-int8
+      WHISPER_LANG: es
+    volumes:
+      - ./config/whisper:/config
+    ports:
+      - "127.0.0.1:10300:10300"
+
+  piper:
+    <<: *common
+    image: lscr.io/linuxserver/piper:latest
+    container_name: piper
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Madrid
+      PIPER_VOICE: es_ES-davefx-medium
+    volumes:
+      - ./config/piper:/config
+    ports:
+      - "127.0.0.1:10200:10200"
