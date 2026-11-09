@@ -251,3 +251,12 @@ services:
       - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
+
+  beszel:
+    image: henrygd/beszel:latest
+    container_name: beszel
+    restart: unless-stopped
+    volumes:
+      - ./config/beszel:/beszel_data
+    ports:
+      - "127.0.0.1:8091:8090"
