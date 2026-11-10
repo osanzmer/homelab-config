@@ -1,0 +1,9 @@
+DRIVER    VOLUME NAME
+local     741e9085a513234f34fe02deafa537ad05bd82dfdde01febef37bc7a2f62ea47
+local     e0ac61b73bea3360a4d31c7fc30b4408b3709055440103436354a79891258924
+local     fca91d6319f93c2fc7de596f74a8489918dfb47d1aa70560922087a64e16ab04
+local     games_romm_redis_data
+local     games_romm_resources
+local     immich_model-cache
+local     juegos_romm_redis_data
+local     juegos_romm_resources

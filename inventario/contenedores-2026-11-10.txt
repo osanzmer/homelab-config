@@ -1,0 +1,33 @@
+romm  rommapp/romm:4.9.0  Up 24 hours
+romm-db  mariadb:11  Up 24 hours (healthy)
+homepage  ghcr.io/gethomepage/homepage:latest  Up 24 hours (healthy)
+whisper  lscr.io/linuxserver/faster-whisper:latest  Up 34 hours
+piper  lscr.io/linuxserver/piper:latest  Up 34 hours
+homeassistant  ghcr.io/home-assistant/home-assistant:stable  Up 34 hours
+jellyfin  38f6ad3bcd48  Up 34 hours
+open-webui  ghcr.io/open-webui/open-webui:main  Up 34 hours (healthy)
+ollama  ollama/ollama:latest  Up 34 hours
+beszel-agent  henrygd/beszel-agent  Up 34 hours
+beszel  henrygd/beszel:latest  Up 34 hours
+immich_server  ghcr.io/immich-app/immich-server:v3  Up 34 hours (healthy)
+immich_postgres  ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0  Up 34 hours (healthy)
+immich_machine_learning  ghcr.io/immich-app/immich-machine-learning:v3  Up 34 hours (healthy)
+immich_redis  valkey/valkey:9  Up 34 hours (healthy)
+dockge  louislam/dockge:1  Up 34 hours (healthy)
+jellystat  cyfershepard/jellystat:latest  Up 34 hours (healthy)
+caddy  caddy:2  Up 23 hours
+scrutiny  ghcr.io/analogj/scrutiny:master-omnibus  Up 34 hours
+bazarr  lscr.io/linuxserver/bazarr:latest  Up 34 hours
+jellystat-db  postgres:15  Up 34 hours
+qbittorrent  lscr.io/linuxserver/qbittorrent:latest  Up 34 hours
+lidarr  lscr.io/linuxserver/lidarr:latest  Up 34 hours
+radarr  lscr.io/linuxserver/radarr:latest  Up 34 hours
+sonarr  lscr.io/linuxserver/sonarr:latest  Up 34 hours
+uptime-kuma  louislam/uptime-kuma:1  Up 34 hours (healthy)
+flaresolverr  ghcr.io/flaresolverr/flaresolverr:latest  Up 34 hours
+wizarr  ghcr.io/wizarrrr/wizarr:latest  Up 34 hours (healthy)
+watchtower  nickfedor/watchtower:latest  Up 34 hours (healthy)
+prowlarr  lscr.io/linuxserver/prowlarr:latest  Up 34 hours
+unpackerr  golift/unpackerr:latest  Up 34 hours
+jellyseerr  d8fab675b55a  Up 34 hours
+recyclarr  ghcr.io/recyclarr/recyclarr:8  Up 34 hours

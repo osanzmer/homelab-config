@@ -1,0 +1,6 @@
+318M	/opt/homelab/config/whisper/blobs
+4,0K	/opt/homelab/config/whisper/CACHEDIR.TAG
+496K	/opt/homelab/config/whisper/models--rhasspy--faster-whisper-base-int8
+496K	/opt/homelab/config/whisper/models--rhasspy--faster-whisper-small-int8
+4,0K	/opt/homelab/config/whisper/.cache/huggingface/hub/CACHEDIR.TAG
+2,4M	/opt/homelab/config/whisper/.cache/huggingface/hub/models--openai--whisper-tiny
