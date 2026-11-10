@@ -190,6 +190,7 @@ services:
 
   wizarr:
     image: ghcr.io/wizarrrr/wizarr:latest
+    profiles: ["retirado"]
     container_name: wizarr
     restart: unless-stopped
     environment:
@@ -203,6 +204,7 @@ services:
 
   jellystat-db:
     image: postgres:15
+    profiles: ["retirado"]
     container_name: jellystat-db
     restart: unless-stopped
     environment:
@@ -214,6 +216,7 @@ services:
 
   jellystat:
     image: cyfershepard/jellystat:latest
+    profiles: ["retirado"]
     container_name: jellystat
     restart: unless-stopped
     environment:
