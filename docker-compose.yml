@@ -92,7 +92,75 @@ services:
       - ./config/uptime-kuma:/app/data
     ports:
       - "3001:3001"
+  backrest:
+    image: garethgeorge/backrest:latest
+    container_name: backrest
+    environment:
+      BACKREST_DATA: /data
+      BACKREST_CONFIG: /config/config.json
+      XDG_CACHE_HOME: /cache
+      TZ: "Europe/Madrid"
+    volumes:
+      - ./config/backrest/data:/data
+      - ./config/backrest/config:/config
+      - ./config/backrest/cache:/cache
+      - /srv/restic:/repos/principal
+      - /data/backups/restic-copia:/repos/copia
+      - /data/restaurado:/restaurado
+    restart: unless-stopped
+  mylar3:
+    image: lscr.io/linuxserver/mylar3:latest
+    container_name: mylar3
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "Europe/Madrid"
+    volumes:
+      - ./config/mylar3:/config
+      - /data/comics:/comics
+      - /data:/data
+    restart: unless-stopped
 
+  lazylibrarian:
+    image: lscr.io/linuxserver/lazylibrarian:latest
+    container_name: lazylibrarian
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "Europe/Madrid"
+    volumes:
+      - ./config/lazylibrarian:/config
+      - /data/libros:/books
+      - /data:/data
+    restart: unless-stopped
+  kavita:
+    image: jvmilazz0/kavita:latest
+    container_name: kavita
+    environment:
+      TZ: "Europe/Madrid"
+    volumes:
+      - ./config/kavita:/kavita/config
+      - /data/comics:/comics
+      - /data/libros:/libros
+    restart: unless-stopped
+  rustdesk-hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbr
+    command: hbbr
+    network_mode: host
+    volumes:
+      - ./config/rustdesk:/root
+    restart: unless-stopped
+  rustdesk-hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbs
+    command: hbbs
+    network_mode: host
+    volumes:
+      - ./config/rustdesk:/root
+    depends_on:
+      - rustdesk-hbbr
+    restart: unless-stopped
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
