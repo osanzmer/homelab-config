@@ -161,6 +161,23 @@ services:
     depends_on:
       - rustdesk-hbbr
     restart: unless-stopped
+  diun:
+    image: crazymax/diun:latest
+    container_name: diun
+    command: serve
+    environment:
+      TZ: "Europe/Madrid"
+      DIUN_WATCH_SCHEDULE: "0 9 * * 6"
+      DIUN_WATCH_WORKERS: "10"
+      DIUN_PROVIDERS_DOCKER: "true"
+      DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT: "true"
+      DIUN_NOTIF_NTFY_ENDPOINT: "https://ntfy.sh"
+      DIUN_NOTIF_NTFY_TOPIC: "${NTFY_INFO}"
+    volumes:
+      - ./config/diun:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
@@ -212,18 +229,6 @@ services:
       SONARR_API_KEY: ${SONARR_API_KEY}
     volumes:
       - ./config/recyclarr:/config
-
-  watchtower:
-    image: nickfedor/watchtower:latest
-    container_name: watchtower
-    restart: unless-stopped
-    environment:
-      TZ: Europe/Madrid
-      WATCHTOWER_MONITOR_ONLY: "true"
-      WATCHTOWER_SCHEDULE: "0 0 9 * * 6"
-      WATCHTOWER_NOTIFICATION_URL: "ntfy://ntfy.sh/TEMA_INFO"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus
