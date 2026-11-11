@@ -75,3 +75,22 @@ games.home.lab {
 	import solo_oscar
 	reverse_proxy romm:8080
 }
+backups.home.lab {
+	import solo_oscar
+	reverse_proxy backrest:9898
+}
+mylar.home.lab {
+	import solo_oscar
+	reverse_proxy mylar3:8090
+}
+
+libros.home.lab {
+	import solo_oscar
+	reverse_proxy lazylibrarian:5299
+}
+
+comics.home.lab {
+	import solo_oscar
+	reverse_proxy kavita:5000
+}
+

@@ -41,11 +41,6 @@
         icon: sonarr.png
         server: my-docker
         container: sonarr
-    - Lidarr:
-        href: https://lidarr.home.lab
-        icon: lidarr.png
-        server: my-docker
-        container: lidarr
     - Prowlarr:
         href: https://prowlarr.home.lab
         icon: prowlarr.png
