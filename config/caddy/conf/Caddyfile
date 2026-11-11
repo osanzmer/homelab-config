@@ -17,9 +17,6 @@ request.home.lab {
 status.home.lab {
 	reverse_proxy uptime-kuma:3001
 }
-invite.home.lab {
-	reverse_proxy wizarr:5690
-}
 iot.home.lab, assist.home.lab {
 	reverse_proxy 192.168.1.74:8123
 }
@@ -53,10 +50,6 @@ disks.home.lab {
 	import solo_oscar
 	reverse_proxy scrutiny:8080
 }
-stats.home.lab {
-	import solo_oscar
-	reverse_proxy jellystat:3000
-}
 downloads.home.lab {
 	import solo_oscar
 	reverse_proxy qbittorrent:8080
@@ -68,10 +61,6 @@ radarr.home.lab {
 sonarr.home.lab {
 	import solo_oscar
 	reverse_proxy sonarr:8989
-}
-lidarr.home.lab {
-	import solo_oscar
-	reverse_proxy lidarr:8686
 }
 prowlarr.home.lab {
 	import solo_oscar

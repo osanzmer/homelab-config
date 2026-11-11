@@ -119,20 +119,6 @@ services:
     ports:
       - "5055:5055"
 
-  lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
-    container_name: lidarr
-    restart: unless-stopped
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Europe/Madrid
-    volumes:
-      - ./config/lidarr:/config
-      - /data:/data
-    ports:
-      - "127.0.0.1:8686:8686"
-
   unpackerr:
     image: golift/unpackerr:latest
     container_name: unpackerr
@@ -189,51 +175,6 @@ services:
       - /dev/sda
       - /dev/sdb
 
-  wizarr:
-    image: ghcr.io/wizarrrr/wizarr:latest
-    profiles: ["retirado"]
-    container_name: wizarr
-    restart: unless-stopped
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Europe/Madrid
-    volumes:
-      - ./config/wizarr:/data/database
-    ports:
-      - "5690:5690"
-
-  jellystat-db:
-    image: postgres:15
-    profiles: ["retirado"]
-    container_name: jellystat-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: jfstat
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${JELLYSTAT_DB_PASS}
-    volumes:
-      - ./config/jellystat/db:/var/lib/postgresql/data
-
-  jellystat:
-    image: cyfershepard/jellystat:latest
-    profiles: ["retirado"]
-    container_name: jellystat
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${JELLYSTAT_DB_PASS}
-      POSTGRES_IP: jellystat-db
-      POSTGRES_PORT: 5432
-      JWT_SECRET: ${JELLYSTAT_JWT}
-      TZ: Europe/Madrid
-    volumes:
-      - ./config/jellystat/backup:/app/backend/backup-data
-    ports:
-      - "127.0.0.1:3000:3000"
-    depends_on:
-      - jellystat-db
-
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
@@ -254,7 +195,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./config/caddy/conf:/etc/caddy:ro
       - ./config/caddy/data:/data
       - ./config/caddy/config:/config
 
