@@ -153,7 +153,6 @@ services:
       TZ: Europe/Madrid
       WATCHTOWER_MONITOR_ONLY: "true"
       WATCHTOWER_SCHEDULE: "0 0 9 * * 6"
-      TZ: "Europe/Madrid"
       WATCHTOWER_NOTIFICATION_URL: "ntfy://ntfy.sh/TEMA_INFO"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
