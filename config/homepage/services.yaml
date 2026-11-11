@@ -17,11 +17,19 @@
     - IA:
         href: https://ai.home.lab
         icon: open-webui.png
-        server: my-docker
+        server: local
         container: open-webui
     - Immich:
         href: https://photos.home.lab
         icon: immich.png
+        server: local
+        container: immich_server
+    - RomM:
+        icon: romm.png
+        href: https://games.home.lab
+        description: Juegos retro
+        server: local
+        container: romm
 - Gestión:
     - Radarr:
         href: https://radarr.home.lab
@@ -72,9 +80,6 @@
     - Dockge:
         href: https://docker.home.lab
         icon: dockge.png
-    - Cockpit:
-        href: https://192.168.1.74:9090
-        icon: cockpit.png
     - Pi-hole:
         href: http://192.168.1.66/admin
         icon: pi-hole.png
