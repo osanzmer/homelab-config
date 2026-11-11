@@ -17,18 +17,18 @@
     - IA:
         href: https://ai.home.lab
         icon: open-webui.png
-        server: local
+        server: my-docker
         container: open-webui
     - Immich:
         href: https://photos.home.lab
         icon: immich.png
-        server: local
+        server: my-docker
         container: immich_server
     - RomM:
         icon: romm.png
         href: https://games.home.lab
         description: Juegos retro
-        server: local
+        server: my-docker
         container: romm
 - Gestión:
     - Radarr:

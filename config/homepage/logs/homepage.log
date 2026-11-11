@@ -5,3 +5,18 @@
 [2026-11-08T23:46:33.080Z] info: custom.css was copied to the config folder
 [2026-11-08T23:46:33.080Z] info: custom.js was copied to the config folder
 [2026-11-09T00:35:39.471Z] error: Host validation failed for: homepage:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-11-11T00:41:49.008Z] error: <dockerStatuses> TypeError: Cannot read properties of null (reading 'conn')
+    at l (/app/.next/server/pages/api/docker/statuses.js:2:1663)
+    at i (/app/.next/server/pages/api/docker/statuses.js:1:5228)
+    at /app/.next/server/chunks/205.js:2:5363
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[2026-11-11T00:42:20.618Z] error: <dockerStatuses> TypeError: Cannot read properties of null (reading 'conn')
+    at l (/app/.next/server/pages/api/docker/statuses.js:2:1663)
+    at i (/app/.next/server/pages/api/docker/statuses.js:1:5228)
+    at /app/.next/server/chunks/205.js:2:5363
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[2026-11-11T00:43:32.138Z] error: <dockerStatuses> TypeError: Cannot read properties of null (reading 'conn')
+    at l (/app/.next/server/pages/api/docker/statuses.js:2:1663)
+    at i (/app/.next/server/pages/api/docker/statuses.js:1:5228)
+    at /app/.next/server/chunks/205.js:2:5363
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
