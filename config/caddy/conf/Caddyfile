@@ -96,5 +96,9 @@ comics.home.lab {
 
 logs.home.lab {
         import solo_oscar
-        reverse_proxy 127.0.0.1:8888
+        reverse_proxy dozzle:8888
+}
+changes.home.lab {
+        import solo_oscar
+        reverse_proxy changedetection:5000
 }

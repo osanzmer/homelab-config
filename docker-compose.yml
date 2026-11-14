@@ -23,8 +23,12 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:8888:8080"
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:latest
+    container_name: changedetection
+    volumes:
+      - ./config/changedetection:/datastore
+    restart: unless-stopped
   jellyfin:
     <<: *common
     image: lscr.io/linuxserver/jellyfin@sha256:38f6ad3bcd487c82933ede7e32d74ab8712fffcff9e87b16dd2e245ab37130f8
