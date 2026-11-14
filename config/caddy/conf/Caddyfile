@@ -110,3 +110,10 @@ find.home.lab {
         import solo_oscar
         reverse_proxy searxng:8080
 }
+pdf.home.lab {
+	import solo_oscar
+	request_body {
+		max_size 200MB
+	}
+	reverse_proxy stirling-pdf:8080
+}
