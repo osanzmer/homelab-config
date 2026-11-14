@@ -94,3 +94,7 @@ comics.home.lab {
 	reverse_proxy kavita:5000
 }
 
+logs.home.lab {
+        import solo_oscar
+        reverse_proxy 127.0.0.1:8888
+}
