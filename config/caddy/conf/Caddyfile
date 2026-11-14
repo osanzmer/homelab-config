@@ -102,3 +102,7 @@ changes.home.lab {
         import solo_oscar
         reverse_proxy changedetection:5000
 }
+keep.home.lab {
+	import solo_oscar
+	reverse_proxy karakeep:3000
+}
