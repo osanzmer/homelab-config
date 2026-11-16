@@ -16,15 +16,15 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWORD: ${DB_PASS}
   gotenberg:
+    profiles: ["office"]
     image: gotenberg/gotenberg:8
     container_name: paperless-gotenberg
-    profiles: ["office"]
     restart: unless-stopped
     command: ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=file:///tmp/.*"]
   tika:
+    profiles: ["office"]
     image: apache/tika:latest
     container_name: paperless-tika
-    profiles: ["office"]
     restart: unless-stopped
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:3.4.2
