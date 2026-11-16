@@ -18,17 +18,19 @@ services:
   gotenberg:
     image: gotenberg/gotenberg:8
     container_name: paperless-gotenberg
+    profiles: ["office"]
     restart: unless-stopped
     command: ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=file:///tmp/.*"]
   tika:
     image: apache/tika:latest
     container_name: paperless-tika
+    profiles: ["office"]
     restart: unless-stopped
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:3.4.2
     container_name: paperless
     restart: unless-stopped
-    depends_on: [db, broker, gotenberg, tika]
+    depends_on: [db, broker]
     volumes:
       - ./data:/usr/src/paperless/data
       - /data/documentos/archivo:/usr/src/paperless/media
