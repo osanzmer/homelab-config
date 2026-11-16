@@ -1,0 +1,55 @@
+services:
+  romm:
+    image: rommapp/romm:4.9.0
+    container_name: romm
+    restart: unless-stopped
+    environment:
+      - DB_HOST=romm-db
+      - DB_NAME=romm
+      - DB_USER=romm-user
+      - DB_PASSWD=${DB_PASSWD}
+      - ROMM_AUTH_SECRET_KEY=${ROMM_AUTH_SECRET_KEY}
+      - HASHEOUS_API_ENABLED=true
+      - ENABLE_RESCAN_ON_FILESYSTEM_CHANGE=true
+      - RESCAN_ON_FILESYSTEM_CHANGE_DELAY=5
+      - ENABLE_SCHEDULED_RESCAN=true
+      - SCHEDULED_RESCAN_CRON=0 3 * * *
+    volumes:
+      - romm_resources:/romm/resources
+      - romm_redis_data:/redis-data
+      - /data/games/library:/romm/library
+      - ./assets:/romm/assets
+      - ./config:/romm/config
+    ports:
+      - 127.0.0.1:8095:8080
+    depends_on:
+      romm-db:
+        condition: service_healthy
+    networks: [homelab_default]
+
+  romm-db:
+    image: mariadb:11
+    container_name: romm-db
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT}
+      - MARIADB_DATABASE=romm
+      - MARIADB_USER=romm-user
+      - MARIADB_PASSWORD=${DB_PASSWD}
+    volumes:
+      - ./db:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      start_period: 30s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [homelab_default]
+
+volumes:
+  romm_resources:
+  romm_redis_data:
+
+networks:
+  homelab_default:
+    external: true
