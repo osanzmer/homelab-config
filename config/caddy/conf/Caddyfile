@@ -122,3 +122,8 @@ docs.home.lab {
 	import solo_oscar
 	reverse_proxy paperless:8000
 }
+
+sync.home.lab {
+	import solo_oscar
+	reverse_proxy syncthing:8384
+}

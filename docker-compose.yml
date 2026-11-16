@@ -6,6 +6,21 @@ x-common: &common
     TZ: Europe/Madrid
 
 services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    hostname: servidor
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "Europe/Madrid"
+    volumes:
+      - ./config/syncthing:/config
+      - /data/obsidian:/data/obsidian
+    ports:
+      - "22000:22000/tcp"
+      - "22000:22000/udp"
+    restart: unless-stopped
   stirling-pdf:
     image: stirlingtools/stirling-pdf:latest
     container_name: stirling-pdf
