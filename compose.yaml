@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     environment:
       OLLAMA_KEEP_ALIVE: 5m
+      OLLAMA_ORIGINS: "app://obsidian.md*"
       OLLAMA_FLASH_ATTENTION: "1"
       OLLAMA_KV_CACHE_TYPE: "q8_0"
     volumes:
