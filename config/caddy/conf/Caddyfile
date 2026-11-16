@@ -117,3 +117,8 @@ pdf.home.lab {
 	}
 	reverse_proxy stirling-pdf:8080
 }
+
+docs.home.lab {
+	import solo_oscar
+	reverse_proxy paperless:8000
+}
